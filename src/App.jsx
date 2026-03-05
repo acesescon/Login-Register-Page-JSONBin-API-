@@ -2,7 +2,7 @@
 import './index.css'
 import {useState} from 'react'
 import LandingPage from './pages/LandingPage'
-import WelcomePage from './pages/WelcomePAge'
+import WelcomePage from './pages/WelcomePage'
 
 function App() {
   const [islogin, setIslogin] = useState(true)
