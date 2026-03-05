@@ -17,6 +17,7 @@ export default function LoginComponent({changeShow,toggleLogin}) {
         
         if(email == "" && password == ""){
             alert("Please input you email and password")
+            setLoading(false)
         }else{
             try{;
                 const user = await login(email,password);
