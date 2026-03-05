@@ -11,23 +11,30 @@ export default function LoginComponent({changeShow,toggleLogin}) {
     const Login = async (e) => {
         e.preventDefault()
         setLoading(true) //on toggle set loading
+        email.trim()
+        password.trim()
 
-        try{;
-            const user = await login(email,password);
-            if (user) {
-                alert('login successfully!')
-                if (typeof toggleLogin === 'function') toggleLogin()
-            } else {
-                alert('invalid credentials')
+        
+        if(email == "" && password == ""){
+            alert("Please input you email and password")
+        }else{
+            try{;
+                const user = await login(email,password);
+                if (user) {
+                    alert('login successfully!')
+                    if (typeof toggleLogin === 'function') toggleLogin()
+                } else {
+                    alert('invalid credentials')
+                }
+
+                setEmail('')
+                setPassword('')
+
+            } catch(err) {
+                console.error('somethign went wrong!: ', err)
+            } finally {
+                setLoading(false)
             }
-
-            setEmail('')
-            setPassword('')
-
-        } catch(err) {
-            console.error('somethign went wrong!: ', err)
-        } finally {
-            setLoading(false)
         }
     }
 
