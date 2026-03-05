@@ -9,25 +9,31 @@ export default function RegisterComponent({changeShow}) {
 
     const toggleRegister = async (e) => {
         e.preventDefault(); //prevent load page
+        email.trim()
+        password.trim()
 
         try {
-            if(password === vpassword) { //vification
-                const response = await register(email, password)
+            if(email == "" && password == ""){
+                alert("Please input you email and password")
+            }else{
+                if(password === vpassword) { //vification
+                    const response = await register(email, password)
 
-                if (response.success) {
-                    alert('registered successfully')
-                }else {
-                    alert(response.message) 
+                    if (response.success) {
+                        alert('registered successfully')
+                    }else {
+                        alert(response.message) 
+                    }
+
+                    setEmail('')
+                    setPassword('')
+                    setVPassword('')
+
+                    changeShow //go to login page
+
+                } else {
+                    alert ('password dont match!')
                 }
-
-                setEmail('')
-                setPassword('')
-                setVPassword('')
-
-                changeShow //go to login page
-
-            } else {
-                alert ('password dont match!')
             }
         } catch (err) {
             console.error('something went wrong: ', err)
