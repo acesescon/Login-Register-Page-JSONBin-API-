@@ -18,6 +18,11 @@ button:disabled {
   cursor: not-allowed;
 }
 
+button:hover{
+  background-color: rgb(108, 194, 252);
+  color:  rgb(247, 251, 255);
+}
+
 .landing-page{
   margin-top: 5rem;
   display: flex;
@@ -62,6 +67,11 @@ button:disabled {
   text-align:center;
   color: rgb(41, 108, 174);
   font-size: .8rem;
+}
+
+a:hover{
+  color: rgb(14, 62, 109);
+  text-decoration: underline;
 }
 
 .register-form{
